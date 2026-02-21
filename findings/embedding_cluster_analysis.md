@@ -141,7 +141,7 @@ UMAP 50D is the most consistent — 4 out of 5 parametric methods (Silhouette, D
 
 PCA analysis was misleading (said K=2). UMAP says **K=5**, and prediction results confirm K=5 is meaningfully predictable (Kappa 0.49).
 
-Scripts: `cluster_optimal_k.py` (PCA), `cluster_umap.py` (UMAP all dims), `cluster_id_umap.py` (UMAP 10D/50D focused)
+Scripts: `scripts/cluster/cluster_optimal_k.py` (PCA), `scripts/cluster/cluster_umap.py` (UMAP all dims), `scripts/cluster/cluster_id_umap.py` (UMAP 10D/50D focused)
 
 ### 10. K=5 cluster agreement across methods (UMAP 50D)
 
@@ -172,7 +172,7 @@ Different clustering methods find highly consistent structure:
 
 The main split within the "everything else" blob (C1 vs C3) is **tone**: calm/meditative vs agitated/conflicted. C3 comes from conversations with more apologies/refusals (53% vs 32%) — the model responds differently to conversations where it was pushed/frustrated vs ones that flowed smoothly.
 
-Script: `cluster_agreement.py`
+Script: `scripts/cluster/cluster_agreement.py`
 
 ### 11. Prediction performance is consistent across clustering methods (UMAP 50D, K~5)
 
@@ -188,7 +188,7 @@ Methods are within ~0.02 Kappa of each other. KMeans edges out slightly — its 
 
 Best input representations: Full conv (3072D) and First+Last (PCA 20D), both ~0.49. Note: these are the **input** conversation embeddings used for prediction — separate from the UMAP 50D which is applied to the **output** embeddings for clustering.
 
-Script: `umap50_predict_3methods.py`, results: `embeddings/umap50_3methods_prediction.csv`
+Script: `scripts/predict/umap50_predict_3methods.py`, results: `embeddings/umap50_3methods_prediction.csv`
 
 ### 12. UMAP on input side hurts prediction — PCA/raw is better
 
@@ -211,17 +211,17 @@ UMAP on input scores ~0.47-0.48, about 0.03 below PCA/raw. UMAP is great for clu
 
 Winner: **First+Last (PCA 20D)** at 0.505. First+Last raw 6144D (0.503) is just as good — with 1000 samples, raw 6144D doesn't overfit as much as expected.
 
-Script: `umap_input_test.py`, results: `embeddings/input_umap_comparison.csv`
+Script: `scripts/predict/umap_input_test.py`, results: `embeddings/input_umap_comparison.csv`
 
 ## Files
-- `embedv2.py` — original embedding pipeline
-- `embed_first_last.py` — first/last 8k char embedding generation
-- `temp0_test.py` — temp=0 vs temp=0.7 comparison (100-sample, 3-word prompt)
-- `temp0_fullprompt_1000.py` — **full expression prompt, 1000 samples, temp=0 & 0.7**
+- `scripts/embed/embedv2.py` — original embedding pipeline
+- `scripts/embed/embed_first_last.py` — first/last 8k char embedding generation
+- `scripts/generate/temp0_test.py` — temp=0 vs temp=0.7 comparison (100-sample, 3-word prompt)
+- `scripts/generate/temp0_fullprompt_1000.py` — **full expression prompt, 1000 samples, temp=0 & 0.7**
 - `embeddings/first_last_embedding_results.csv` — 1000-sample 3-word results
 - `embeddings/temp0_vs_temp07_results.csv` — temp comparison results (3-word)
 - `embeddings/fullprompt_1000_results.csv` — full expression prompt results
 - `embeddings/fullprompt_1000_output_embeddings.pkl` — output embeddings (temp=0 & temp=0.7)
 - `outputs/fullprompt_1000_generations.pkl` — generated outputs (temp=0 & temp=0.7)
-- `lmsys_data/lmsys_top_1000.csv` — source conversations
+- `data/lmsys_top_1000.csv` — source conversations
 - `outputs/lmsys_deepseek_worker_longest_chats_1000.txt` — original 3-word outputs

@@ -1,0 +1,3 @@
+Make: Nixplay
+Model: Smart Digital Photo Frame 10.1 inch
+Year of Release: 2019

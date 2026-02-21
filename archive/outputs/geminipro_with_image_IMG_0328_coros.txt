@@ -1,0 +1,3 @@
+Make: COROS
+Model: Pace 2
+Year of Release: 2020

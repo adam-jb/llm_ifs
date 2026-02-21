@@ -1,0 +1,3 @@
+Make: Vifa
+Model: Helsinki
+Year of Release: 2016

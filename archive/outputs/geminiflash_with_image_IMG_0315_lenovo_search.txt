@@ -1,0 +1,3 @@
+Make: Lenovo
+Model: ThinkPad X1 Carbon Gen 10
+Year of Release: 2022

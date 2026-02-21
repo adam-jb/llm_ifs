@@ -1,0 +1,3 @@
+Make: VAX
+Model: Blade 2
+Year of Release: 2018

@@ -1,11 +1,8 @@
-outputs*
-images*
-venv*
-*images*
+data/
+embeddings/
 .env
-env
-lmsys_data*
-serp*
-embeddings*
-costai*
+venv/
+env/
+__pycache__/
+*.pyc
 .DS_Store
